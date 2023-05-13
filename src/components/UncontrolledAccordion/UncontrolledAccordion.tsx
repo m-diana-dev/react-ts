@@ -6,14 +6,12 @@ type AccordionPropsType = {
 
 function UncontrolledAccordion(props: AccordionPropsType) {
     const [title, setTitle] = useState(true)
-    const onClickHandler = ()=>{
-        if(title)setTitle(false)
-        else setTitle(true)
+    const toggleAcc = ()=>{
+        setTitle(!title)
     }
         return (
             <div>
-                <AccordionTitle accordionTitle={props.accordionTitle}/>
-                <button onClick={onClickHandler}>Toggle</button>
+                <AccordionTitle accordionTitle={props.accordionTitle} toggleAcc={toggleAcc}/>
                 {!title && <AccordionBody/>}
             </div>
         )
@@ -22,12 +20,15 @@ function UncontrolledAccordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
     accordionTitle: string
+    toggleAcc: ()=>void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log('accordion title rendered')
+    const onClickHandler = ()=>{
+        props.toggleAcc()
+    }
     return (
-        <h3>{props.accordionTitle}</h3>
+        <h3 onClick={onClickHandler}>{props.accordionTitle}</h3>
     )
 }
 

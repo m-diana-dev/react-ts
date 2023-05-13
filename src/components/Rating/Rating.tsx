@@ -8,35 +8,25 @@ export function Rating(props: RatingPropsType) {
     const [value, setValue] = useState(0)
     return (
         <div>
-            <button onClick={()=>{setValue(0)}}>0</button>
-            <Star selected={value > 0}/>
-            <button onClick={()=>{setValue(1)}}>1</button>
-            <Star selected={value > 1}/>
-            <button onClick={()=>{setValue(2)}}>2</button>
-            <Star selected={value > 2}/>
-            <button onClick={()=>{setValue(3)}}>3</button>
-            <Star selected={value > 3}/>
-            <button onClick={()=>{setValue(4)}}>4</button>
-            <Star selected={value > 4}/>
-            <button onClick={()=>{setValue(5)}}>5</button>
+            <Star setValue={setValue} value={1} selected={value > 0}/>
+            <Star setValue={setValue} value={2} selected={value > 1}/>
+            <Star setValue={setValue} value={3} selected={value > 2}/>
+            <Star setValue={setValue} value={4} selected={value > 3}/>
+            <Star setValue={setValue} value={5} selected={value > 4}/>
         </div>
     )
 }
 
 type StarPropsType = {
     selected: boolean
+    setValue:(value:number)=>void
+    value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
 function Star(props: StarPropsType) {
-    debugger;
-    console.log('star rendered')
-    if (props.selected === true) {
         return (
-            <span><b>star </b></span>
+            <span onClick={()=>{props.setValue(props.value)}}>
+                {props.selected ? <b>star </b> : 'star'}
+            </span>
         )
-    } else {
-        return (
-            <span>star </span>
-        )
-    }
 }
