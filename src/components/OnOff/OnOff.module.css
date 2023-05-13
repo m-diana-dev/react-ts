@@ -1,0 +1,27 @@
+button{
+    width: 200px;
+    height: 50px;
+    background-color: #404246;
+    border: none;
+    margin: 10px;
+}
+button.green{
+    background-color: #407013;
+}
+button.red{
+    background-color: #830f0f;
+}
+
+.bulb{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #c4aa82;
+    display: inline-block;
+}
+.bulb.green{
+    background-color: #407013;
+}
+.bulb.red{
+    background-color: #830f0f;
+}
