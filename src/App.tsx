@@ -1,23 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {OnOff} from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 
 function App() {
     console.log('app rendered')
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     return (
         <div>
             {/*<PageTitle title={'Title'}/>*/}
             {/*<Rating value={3}/>*/}
             {/*<UncontrolledAccordion accordionTitle={'UncontrolledAccordion 1'} collapsed={true}/>*/}
-            {/*<UncontrolledAccordion accordionTitle={'UncontrolledAccordion 2'} collapsed={false}/>*/}
+            <Accordion accordionTitle={'Accordion'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
             {/*<PageTitle title={'Title2'}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
-            {/*<Rating value={1}/>*/}
-            {/*<Rating value={0}/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
             {/*<PageTitle title={'Switch'}/>*/}
             {/*<OnOff />*/}
             {/*<OnOff />*/}
@@ -25,7 +26,7 @@ function App() {
             {/*<PageTitle title={'Switch'}/>*/}
             {/*<OnOff on={false}/>*/}
             <UncontrolledAccordion accordionTitle={'UncontrolledAccordion 1'}/>
-            <Rating/>
+            {/*<UncontrolledRating/>*/}
         </div>
     );
 }
