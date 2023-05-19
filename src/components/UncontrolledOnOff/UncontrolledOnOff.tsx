@@ -2,11 +2,18 @@ import React, {useState} from 'react';
 import s from './OnOff.module.css'
 
 type OnOffPropsType = {
-    on:boolean
-    onClick: (on:boolean)=>void
+    // value: string
+    // on: boolean
+    onChange: (on: boolean)=>void
 }
-export const OnOff: React.FC<OnOffPropsType> = (props) => {
-    const{on,onClick}=props;
+export const UncontrolledOnOff = (props: OnOffPropsType) => {
+    // const btnOn = props.value === 'on' ? s.green : '';
+    // const btnOff = props.value === 'off' ? s.red : '';
+    // const bulb = s.bulb + ' ' + (props.value === 'on' ? s.green : s.red);
+
+    // const on = false;
+
+    const [on, setOn] = useState<boolean>(false)
 
     const onStyle = {
         width: '20px',
@@ -36,10 +43,20 @@ export const OnOff: React.FC<OnOffPropsType> = (props) => {
         display: 'inline-block',
         background: on ? 'green' : 'red'
     }
+
+    const onClicked = () => {
+        setOn(true);
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        setOn(false);
+        props.onChange(false)
+    }
+
     return (
         <div>
-            <div style={onStyle} onClick={()=>onClick(true)}>on</div>
-            <div style={offStyle} onClick={()=>onClick(false)}>off</div>
+            <div style={onStyle} onClick={onClicked}>on</div>
+            <div style={offStyle} onClick={offClicked}>off</div>
             <div style={indicatorStyle}></div>
         </div>
     );
