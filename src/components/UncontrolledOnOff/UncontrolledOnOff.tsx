@@ -4,7 +4,7 @@ import s from './OnOff.module.css'
 type OnOffPropsType = {
     // value: string
     // on: boolean
-    onChange: (on: boolean)=>void
+    // onChange: (on: boolean)=>void
 }
 export const UncontrolledOnOff = (props: OnOffPropsType) => {
     // const btnOn = props.value === 'on' ? s.green : '';
@@ -46,11 +46,11 @@ export const UncontrolledOnOff = (props: OnOffPropsType) => {
 
     const onClicked = () => {
         setOn(true);
-        props.onChange(true)
+        // props.onChange(true)
     }
     const offClicked = () => {
         setOn(false);
-        props.onChange(false)
+        // props.onChange(false)
     }
 
     return (

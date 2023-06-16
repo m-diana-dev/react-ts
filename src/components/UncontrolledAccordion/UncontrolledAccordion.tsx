@@ -4,7 +4,7 @@ type AccordionPropsType = {
     accordionTitle: string
 }
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion(props: AccordionPropsType) {
     const [title, setTitle] = useState(true)
     const toggleAcc = ()=>{
         setTitle(!title)
@@ -42,5 +42,3 @@ function AccordionBody() {
         </ul>
     )
 }
-
-export default UncontrolledAccordion;

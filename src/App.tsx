@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
+import {Accordion} from "./components/Accordion/Accordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
-import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 
@@ -25,7 +25,7 @@ function App() {
             {/*<OnOff />*/}
             {/*<OnOff />*/}
             <OnOff onClick={setOn} on={on}/>
-            <UncontrolledOnOff onChange={setOn}/> {on.toString()}
+            {/*<UncontrolledOnOff onChange={setOn}/> {on.toString()}*/}
             {/*<PageTitle title={'Switch'}/>*/}
             {/*<OnOff on={false}/>*/}
             {/*<UncontrolledAccordion accordionTitle={'UncontrolledAccordion 1'}/>*/}
