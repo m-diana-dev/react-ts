@@ -4,7 +4,7 @@ import React, {useState} from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-    title: 'Example/OnOff',
+    title: 'Components/OnOff',
     component: OnOff,
     tags: ['autodocs'],
 } satisfies Meta<typeof OnOff>;
