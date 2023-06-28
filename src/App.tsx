@@ -18,7 +18,7 @@ function App() {
             {/*<PageTitle title={'Title'}/>*/}
             {/*<Rating value={3}/>*/}
             {/*<UncontrolledAccordion accordionTitle={'UncontrolledAccordion 1'} collapsed={true}/>*/}
-            {/*<Accordion accordionTitle={'Accordion'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>*/}
+            {/*<Select accordionTitle={'Select'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>*/}
             {/*<PageTitle title={'Title2'}/>*/}
             {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
             {/*<PageTitle title={'Switch'}/>*/}

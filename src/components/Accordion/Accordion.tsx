@@ -1,5 +1,10 @@
 import React from "react";
 
+
+export type ItemType = {
+    name: string
+    value: any
+}
 type AccordionPropsType = {
     /**
      * sets the title of the menu
@@ -11,13 +16,15 @@ type AccordionPropsType = {
     collapsed: boolean
     onClick: (accordionCollapsed:boolean)=>void
     color?:string
+    items:ItemType[]
+    onClickItems: (value:any)=>void
 }
 
 export function Accordion(props: AccordionPropsType) {
         return (
             <div>
                 <AccordionTitle accordionTitle={props.accordionTitle} onClick={props.onClick} collapsed={props.collapsed} color={props.color}/>
-                {!props.collapsed && <AccordionBody/>}
+                {!props.collapsed && <AccordionBody items={props.items} onClickItems={props.onClickItems}/>}
             </div>
         )
 }
@@ -29,6 +36,10 @@ type AccordionTitlePropsType = {
     onClick: (accordionCollapsed:boolean)=>void
     color?:string
 }
+type AccordionBodyPropsType = {
+    items:ItemType[]
+    onClickItems: (value:any)=>void
+}
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log('accordion title rendered')
@@ -37,13 +48,11 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     )
 }
 
-function AccordionBody() {
+function AccordionBody(props: AccordionBodyPropsType) {
     console.log('accordion body rendered')
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map((el,index)=><li onClick={()=>props.onClickItems(el.value)} key={index}>{el.name}</li>)}
         </ul>
     )
 }

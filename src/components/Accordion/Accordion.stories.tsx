@@ -32,14 +32,19 @@ export const CollapsedMode: Story = {
 export const UncollapsedMode: Story = {
     args: {
         accordionTitle: 'Menu',
-        collapsed: false
+        collapsed: false,
+        items: []
     },
 };
 
 export const AccordionChange: Story = {
     render: function Render () {
         const [value, setValue] = useState<boolean>(true);
-        return <Accordion accordionTitle={'Menu'} collapsed={value} onClick={()=>setValue(!value)}/>
+        return <Accordion accordionTitle={'Menu'}
+                          collapsed={value}
+                          onClick={()=>setValue(!value)}
+                          onClickItems={(value)=>{alert(value)}}
+        items={[{name:'Ivan-1',value:1 },{name:'Ivan-2',value:2 }]}/>
     }
 }
 
