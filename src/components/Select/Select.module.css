@@ -1,0 +1,23 @@
+.select{
+    max-width: 200px;
+}
+.selectTitle{
+    max-width: 90%;
+    width: 100%;
+    display: inline-flex;
+    border: 1px solid #b2a9a9;
+    padding: 10px;
+}
+.selectItems{
+    padding: 10px 0;
+    max-width: 100%;
+    width: 100%;
+    border: 1px solid #b2a9a9;
+}
+.selectItem{
+    padding: 10px;
+}
+.selectItem.selected{
+    background: #c68ee0;
+    color: #fff;
+}

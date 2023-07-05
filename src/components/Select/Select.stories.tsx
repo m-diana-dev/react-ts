@@ -15,8 +15,8 @@ type Story = StoryObj<typeof Select>
 
 export const SelectComponents: Story = {
     render: function Render () {
-        const [value, setValue] = useState<boolean>(true);
-        return <Select value={'title'} items={[{title:'Ivan-1',value:1 },{title:'Ivan-2',value:2 }]} onChange={()=>{}}/>
+        const [value, setValue] = useState('2');
+        return <Select value={value} items={[{title:'Ivan-1',value:'1' },{title:'Ivan-2',value:'2' }]} onChange={setValue}/>
     }
 }
 
