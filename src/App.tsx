@@ -24,11 +24,11 @@ function App() {
             {/*<PageTitle title={'Switch'}/>*/}
             {/*<OnOff />*/}
             {/*<OnOff />*/}
-            <OnOff onClick={setOn} on={on}/>
+            {/*<OnOff onClick={setOn} on={on}/>*/}
             {/*<UncontrolledOnOff onChange={setOn}/> {on.toString()}*/}
             {/*<PageTitle title={'Switch'}/>*/}
             {/*<OnOff on={false}/>*/}
-            {/*<UncontrolledAccordion accordionTitle={'UncontrolledAccordion 1'}/>*/}
+            <UncontrolledAccordion accordionTitle={'UncontrolledAccordion 1'}/>
             {/*<UncontrolledRating/>*/}
         </div>
     );
