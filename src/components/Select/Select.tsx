@@ -49,6 +49,7 @@ export function Select(props: SelectPropsType) {
         props.onChange(value);
         toggleItems()
     }
+    console.log("Render Select")
     return (
         <div className={s.select}>
             <div className={s.selectTitle} onClick={toggleItems} onKeyUp={onKeyUpHandler} tabIndex={0}>
@@ -64,3 +65,5 @@ export function Select(props: SelectPropsType) {
         </div>
     )
 }
+
+export const SelectWhitMemo = React.memo(Select);
