@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import React, {ChangeEvent, useMemo, useRef, useState} from "react";
+import React, {ChangeEvent, useCallback, useMemo, useRef, useState} from "react";
 import {Rating, RatingValueType} from "../components/Rating/Rating";
 import buttonStories from "./Button.stories";
 import {Counter} from "./ReactMemo.stories";
 import {Select, SelectWhitMemo} from "../components/Select/Select";
 
 const meta = {
-    title: 'Use Memo Demo',
+    title: 'Use Memo Use Callback Demo',
 } satisfies Meta;
 
 export default meta
@@ -72,6 +72,47 @@ export const HelpToReactMemo: Story = {
         </div>
     }
 }
+
+export const LikeUseCallback: Story = {
+    render: function Render() {
+        const [value, setValue] = useState(0);
+        const [books, setBooks] = useState(['js', 'css', 'html']);
+        console.log("Render LikeUseCallback")
+
+
+        const memoAddBook = useMemo(()=>{
+            return () => {
+                const newBooks = [...books, 'angular' + new Date().getTime()]
+                setBooks(newBooks)
+            }
+        }, [books])
+
+        const memoAddBook2 = useCallback(() => {
+            const newBooks = [...books, 'angular' + new Date().getTime()]
+            setBooks(newBooks)
+        }, [books])
+
+        return <div>
+            <button onClick={()=>setValue(value+1)}>Click</button>
+            {value}
+            <Book books={books} addBook={memoAddBook2}/>
+        </div>
+    }
+}
+
+type BookSecretPropsType = {
+    books: Array<string>
+    addBook: ()=>void
+}
+const booksSecret = (props: BookSecretPropsType) => {
+    console.log("Render books")
+    return <div>
+        <div>{props.books.map(el => el)}</div>
+        <button onClick={props.addBook}>add book</button>
+    </div>
+}
+
+const Book = React.memo(booksSecret)
 
 export const SelectReactMemo: Story = {
     render: function Render() {
