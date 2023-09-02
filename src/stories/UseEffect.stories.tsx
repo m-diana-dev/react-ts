@@ -41,3 +41,50 @@ export const example1: Story = {
         </div>
     }
 }
+
+
+export const SetTimeOutExample: Story = {
+    render: function Render() {
+        const [value, setValue] = useState(0);
+        const [fake, setFake] = useState(0);
+
+
+        useEffect(()=>{
+            //side effects
+            setTimeout(()=>{
+                console.log('set time out')
+                document.title = value.toString()
+            }, 1000)
+        }, [value])
+
+        return <div>
+            <h1>Hello!</h1>
+            <button onClick={() => setValue(value+1)}>Click Value</button>
+            <span>{value}</span>
+            <button onClick={() => setFake(fake+1)}>Click Fake</button>
+            <span>{fake}</span>
+        </div>
+    }
+}
+
+export const SetIntervalExample: Story = {
+    render: function Render() {
+        const [value, setValue] = useState(0);
+        const [fake, setFake] = useState(0);
+
+
+        useEffect(()=>{
+            //side effects
+            setInterval(()=>{
+                console.log('tick' + value)
+                setValue(state=>state+1)
+            }, 1000)
+        }, [])
+
+        return <div>
+            <h1>Hello!</h1>
+            <span>value: {value}</span>
+            <span>fake: {fake}</span>
+        </div>
+    }
+}
