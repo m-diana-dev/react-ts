@@ -14,9 +14,15 @@ export default meta
 type Story = StoryObj<typeof Clock>
 
 
-export const Clock2: Story = {
+export const ClockAnalog: Story = {
     render: function Render () {
-        return <Clock/>
+        return <Clock mode={'analog'}/>
+    }
+}
+
+export const ClockDigital: Story = {
+    render: function Render () {
+        return <Clock mode={'digital'}/>
     }
 }
 
