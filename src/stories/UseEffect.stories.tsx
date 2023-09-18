@@ -88,3 +88,53 @@ export const SetIntervalExample: Story = {
         </div>
     }
 }
+
+export const ResetEffectExample: Story = {
+    render: function Render() {
+        console.log('Component rendered')
+
+        const [value, setValue] = useState(0);
+
+
+        useEffect(() => {
+            console.log('Effect occurred' + value)
+            return ()=>{
+                console.log('Effect reset')
+            }
+        }, [value])
+
+        const increase = () => {
+            setValue(value+1)
+        }
+
+        return <div>
+            <button onClick={increase}>{value}</button>
+        </div>
+    }
+}
+
+export const KeyTrackExample: Story = {
+    render: function Render() {
+
+        const [value, setValue] = useState('');
+
+        console.log('Component rendered' + value)
+
+        useEffect(() => {
+            console.log('Effect occurred' + value)
+            const handler = (e: KeyboardEvent)=>{
+                console.log(e.key)
+                setValue(state=>state+e.key)
+            }
+            window.addEventListener('keypress', handler)
+            return ()=>{
+                window.removeEventListener('keypress', handler)
+            }
+        }, [])
+
+
+        return <div>
+            text: {value}
+        </div>
+    }
+}
